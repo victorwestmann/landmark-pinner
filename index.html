@@ -1,0 +1,156 @@
+<!-- 
+                                  _
+                        .-.      / \        _
+            ^^         /   \    /^./\__   _/ \
+          _        .--'\/\_ \__/.      \ /    \  ^^  ___
+         / \_    _/ ^      \/  __  :'   /\/\  /\  __/   \
+        /    \  /    .'   _/  /  \   ^ /    \/  \/ .`'\_/\
+       /\/\  /\/ :' __  ^/  ^/    `--./.'  ^  `-.\ _    _:\ _
+      /    \/  \  _/  \-' __/.' ^ _   \_   .'\   _/ \ .  __/ \
+    /\  .-   `. \/     \ / -.   _/ \ -. `_/   \ /    `._/  ^  \
+   /  `-.__ ^   / .-'.--'    . /    `--./ .-'  `-.  `-. `.  -  `.
+ @/        `.  / /      `-.   /  .-'   / .   .'   \    \  \  .-  \%
+ @(88%@)@%% @)&@&(88&@.-_=_-=_-=_-=_-=_.8@% &@&&8(8%@%8)(8@%8 8%@)%
+ @88:::&(&8&&8::JGS:&`.~-_~~-~~_~-~_~-~~=.'@(&%::::%@8&8)::&#@8::::
+ `::::::8%@@%:::::@%&8:`.=~~-.~~-.~~=..~'8::::::::&@8:::::&8::::::'
+  `::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::'
+
+  Made by: Victor Westmann
+  Made in Vancouver, BC
+  Date: 2017-01-18
+  Time 22:44
+  @home
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Prototype of enhanced Map Pinner">
+    <meta name="author" content="Victor Westmann">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon/world.png" />
+    
+    <title>Map Pinner</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="bootstrap/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="bootstrap/css/navbar-fixed-top.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="bootstrp/js/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+
+    <!-- X and Y of image are stored in this file -->
+    <script src="getCoordinates.js"></script>
+
+    <!-- The array of landmarks name is in this file.
+    THIS SHOULD BE LOADED BEFORE USING THIS PAGE/TOOL -->
+    <script src="landmarks.js"></script>
+    
+  </head>
+
+  <body>
+    
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Map Pinner</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+            <li class="pin-message">null</li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <!-- removing this since it is not useful for this project. Victor
+            <li><a href="../navbar/">Default</a></li>
+            <li><a href="../navbar-static-top/">Static top</a></li>
+            <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+            -->
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>Welcome to Map Pinner!</h1>
+        <p>This is a tool that was crafted to allow you to pin your map(s) offline.<br>
+          After the map pinning is done you can get your .CSV file and then upload it to QP.</p>
+        <p>
+          <p>~INSTRUCTIONS~<br>
+          To start using the pinning* just open the Dev Tools** and start clicking on the landmakrs! Happy pinning.</p>
+          
+          <p>* = You'll need Google Chrome / Mozilla Firefox / Opera<br>
+            ** = Dev Tools in Mac = &#8997;+ &#8984; + I or<br>
+          ** = Dev Tools in Windows = Ctrl + Shift + I.</p>
+
+          <button type="button" class="btn btn-lg btn-success" id="download">
+            <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+            Download .CSV file
+          </button>
+          <button type="button" class="btn btn-lg btn-danger" id="erase">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            Erase last pinned landmark
+          </button>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+<!-- ============================================================== -->
+<!-- Here is where the image loads. Purposely out of bootstrap container to optimize space to pin maps-->
+<div >
+  <div>
+    <div>
+      <a id="test">
+        <img class="demo-box" src="map.png" />
+      </a>
+    </div>
+    </div>
+</div>
+
+    
+
+  </body>
+</html>
